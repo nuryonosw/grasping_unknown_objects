@@ -1,0 +1,4 @@
+<launch>
+  <node pkg="ggcnn_grasp" type="ggcnn_ros.py" name="ggcnn_detection" output="screen">
+  </node>
+</launch>

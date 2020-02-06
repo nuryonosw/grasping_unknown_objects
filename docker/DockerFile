@@ -1,0 +1,89 @@
+ARG DOCKER_BASE_IMAGE=141.69.58.19:5000/prj-iki-robotics/orga/ros-docker-base:kinetic
+
+RUN apt-get update && \
+    apt-get install -y \
+    python-catkin-lint \
+    ros-kinetic-geometry-msgs \
+    ros-kinetic-pcl-ros \
+    ros-kinetic-message-filters \
+    ros-kinetic-image-geometry \
+    ros-kinetic-kdl-parser \
+    ros-kinetic-roslib \
+    ros-kinetic-std-srvs \
+    libyaml-cpp-dev \
+    ros-kinetic-cv-bridge \
+    ros-kinetic-tf \
+    libassimp-dev \
+    libsdformat6-dev \
+    ros-kinetic-message-generation \
+    ros-kinetic-roscpp \
+    ros-kinetic-message-runtime \
+    ros-kinetic-class-loader \
+    ros-kinetic-pcl-conversions \
+    ros-kinetic-urdf \
+    ros-kinetic-rqt-gui \
+    ros-kinetic-rqt-gui-py \
+    ros-kinetic-moveit-msgs \
+    ros-kinetic-shape-msgs \
+    ros-kinetic-bfl \
+    libsdl-image1.2-dev \
+    ros-kinetic-rviz \
+    ros-kinetic-ros-numpy && \
+    pip install python-pcl
+
+RUN cd /root/catkin_ws/src/ \
+    mkdir prj-iki-robotics \
+    cd prj-iki-robotics \
+    git clone git@fbe-gitlab.hs-weingarten.de:stud-iki/thesis-master/ws19_prasad_grasping_objects.git \
+    cd ws19_prasad_grasping_objects/ggcnn \
+    pip install -r requirements.txt \
+    cd .. \
+    mkdir Dataset \
+    cd Dataset \
+    wget http://pr.cs.cornell.edu/grasping/rect_data/temp/data01.tar.gz \
+    wget http://pr.cs.cornell.edu/grasping/rect_data/temp/data02.tar.gz \
+    wget http://pr.cs.cornell.edu/grasping/rect_data/temp/data03.tar.gz \
+    wget http://pr.cs.cornell.edu/grasping/rect_data/temp/data04.tar.gz \
+    wget http://pr.cs.cornell.edu/grasping/rect_data/temp/data05.tar.gz \
+    wget http://pr.cs.cornell.edu/grasping/rect_data/temp/data06.tar.gz \
+    wget http://pr.cs.cornell.edu/grasping/rect_data/temp/data07.tar.gz \
+    wget http://pr.cs.cornell.edu/grasping/rect_data/temp/data08.tar.gz \
+    wget http://pr.cs.cornell.edu/grasping/rect_data/temp/data09.tar.gz \
+    wget http://pr.cs.cornell.edu/grasping/rect_data/temp/data10.tar.gz \
+    tar xvzf data01.tar.gz \
+    tar xvzf data02.tar.gz \
+    tar xvzf data03.tar.gz \
+    tar xvzf data04.tar.gz \
+    tar xvzf data05.tar.gz \
+    tar xvzf data06.tar.gz \
+    tar xvzf data07.tar.gz \
+    tar xvzf data08.tar.gz \
+    tar xvzf data09.tar.gz \
+    tar xvzf data10.tar.gz \
+    cd .. \
+    cd ggcnn \
+    python -m utils.dataset_processing.generate_cornell_depth /root/catkin_ws/src/prj-iki-robotics/ws19_prasad_grasping_objects/ggcnn_grasp/Dataset
+
+RUN cd /root/catkin_ws/src/prj-iki-robotics/ws19_prasad_grasping_objects/rcnn_grasp/lib \
+    make clean \
+    make \
+    cd .. \
+    cd data \
+    git clone https://github.com/pdollar/coco.git \
+    cd coco/PythonAPI \
+    make \
+    cd ../../.. \
+    mkdir output \
+    cd output \
+    mkdir res50 \
+    cd res50 \
+    mkdir train \
+    cd train \
+    mkdir default \
+    cd default \
+    wget https://www.dropbox.com/s/ldapcpanzqdu7tc/models.zip \
+    unzip models.zip
+
+RUN cd /root/catkin_ws \
+    catkin_make \
+    source ./devel/setup.bash

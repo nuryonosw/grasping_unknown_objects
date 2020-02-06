@@ -1,0 +1,4 @@
+<launch>
+  <node pkg="rcnn_grasp" type="ros_graspRGB_rrobot.py" name="rcnn_rr" output="screen">
+  </node>
+</launch>

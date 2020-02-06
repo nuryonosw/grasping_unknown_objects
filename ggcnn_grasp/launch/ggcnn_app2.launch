@@ -1,0 +1,4 @@
+<launch>
+  <node pkg="ggcnn_grasp" type="grasp_enhanced.py" name="grasp_app2" output="screen">
+  </node>
+</launch>

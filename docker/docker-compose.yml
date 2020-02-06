@@ -1,0 +1,23 @@
+version: '3.4'
+services:
+  ggcnn_rcnn_grasp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    image: 141.69.58.19:5000/prj-iki-robotics/orga/ros-docker-base:kinetic
+
+    environment:
+        ROS_IP: $ROS_IP
+        ROS_MASTER_URI: $ROS_MASTER_URI
+        WAIT_FOR_ROSCORE: 0
+        DISPLAY: :0
+        QT_X11_NO_MITSHM: '1'
+    network_mode: host
+
+    volumes:
+        - /tmp/.X11-unix:/tmp/.X11-unix
+        - $HOME/.Xauthority:/root/.Xauthority
+        - /dev/dri:/dev/dri
+
+    command: /bin/bash -c "tail -f /dev/null"

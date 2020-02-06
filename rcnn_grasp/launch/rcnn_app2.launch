@@ -1,0 +1,4 @@
+<launch>
+  <node pkg="rcnn_grasp" type="ros_graspRGB_enhanced.py" name="rcnn_app2" output="screen">
+  </node>
+</launch>
