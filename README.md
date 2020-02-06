@@ -2,6 +2,10 @@
 
 This repository consists of two grasping neural networks implemented in two approaches and the experimental results. Each neural network is a separate package. The project focuses on improving two existing grasping neural networks to perform better and generic in the 3D world. Experiments were also performed to evaluate and compare the performance in various cases. All experiments were performed in a table top scene. This implementation is for the PAL robotics, Tiago robot. It can be used on other robots by changing the topic names and arm group name. 
 
+## Acknowledgement
+
+Improvement on the works of Douglas Morrison, Peter Corke and Jurgen Leitner in their work "Closing the Loop for Robotic Grasping: A Real-time, Generative Grasp Synthesis Approach" and Fu-Jen Chu, Ruinian Xu and Patricio A. Vela in their work "Real-world Multi-object, Multi-grasp Detection". 
+
 
 ## Getting started
 
