@@ -1,6 +1,6 @@
 # Grasping Unknown Objects Using Convolutional Neural Networks.
 
-This repository consists of two grasping neural networks implemented in two approaches and the experimental results. Each neural network is a separate package. The project focuses on improving two existing grasping neural networks to perform better and generic in the 3D world. Experiments were also performed to evaluate and compare the performance in various cases. All experiments were performed in a table top scene refer [here](https://fbe-gitlab.hs-weingarten.de/stud-iki/thesis-master/ws19_prasad_grasping_objects/tree/dev/doc/thesis).
+This repository consists of two grasping neural networks implemented in two approaches and the experimental results. Each neural network is a separate package. The project focuses on improving two existing grasping neural networks to perform better and generic in the 3D world. Experiments were also performed to evaluate and compare the performance in various cases. All experiments were performed in a table top scene. This implementation is for the PAL robotics, Tiago robot. It can be used on other robots by changing the topic names and arm group name. 
 
 
 ## Getting started
@@ -8,8 +8,7 @@ This repository consists of two grasping neural networks implemented in two appr
 Clone this repository into the catkin workspace.
 
 ```bash
-git clone git@fbe-gitlab.hs-weingarten.de:stud-iki/thesis-master/ws19_prasad_grasping_objects.git
-```
+git clone https://github.com/Pranav24-8/grasping_unknown_objects.git
 
 ### Generative Grasping CNN
 
@@ -35,15 +34,15 @@ To run the training use the following command:
 python train_ggcnn.py --description training_example --network ggcnn --dataset cornell --dataset-path <Path To Dataset>
 ```
 
-The training stores a file for each epoch in  [ggcnn_grasp/ggcnn/output/models/](https://fbe-gitlab.hs-weingarten.de/stud-iki/thesis-master/ws19_prasad_grasping_objects/tree/dev/ggcnn_grasp/ggcnn/output/models) and every file has the validation score appended. Copy the file with maximum score to [ggcnn_grasp/src/opmodels](https://fbe-gitlab.hs-weingarten.de/stud-iki/thesis-master/ws19_prasad_grasping_objects/tree/dev/ggcnn_grasp/src/opmodels). Replace the file name in line 12 of [ggcnn_predict.py](https://fbe-gitlab.hs-weingarten.de/stud-iki/thesis-master/ws19_prasad_grasping_objects/blob/dev/ggcnn_grasp/src/ggcnn_predict.py) with the new one.
+The training stores a file for each epoch in  [ggcnn_grasp/ggcnn/output/models/](https://github.com/Pranav24-8/grasping_unknown_objects/tree/master/ggcnn_grasp/ggcnn/output/models) and every file has the validation score appended. Copy the file with maximum score to [ggcnn_grasp/src/opmodels](https://github.com/Pranav24-8/grasping_unknown_objects/tree/master/ggcnn_grasp/src/opmodels). Replace the file name in line 12 of [ggcnn_predict.py](https://github.com/Pranav24-8/grasping_unknown_objects/blob/master/ggcnn_grasp/src/ggcnn_predict.py) with the new one.
 
 Install all other dependencies listed below and now this network is ready to predict grasps. 
 
 ```ggcnn_predict.launch``` - Runs the network prediction file.
 
-```ggcnn_app1.launch``` - Runs the Approach 1 (refer [Thesis](https://fbe-gitlab.hs-weingarten.de/stud-iki/thesis-master/ws19_prasad_grasping_objects/tree/dev/doc/thesis)) grasping pipeline.
+```ggcnn_app1.launch``` - Runs the Approach 1 (Distinguish grasps based on object dimensions) grasping pipeline.
 
-```ggcnn_app2.launch``` - Runs the Approach 2 (refer [Thesis](https://fbe-gitlab.hs-weingarten.de/stud-iki/thesis-master/ws19_prasad_grasping_objects/tree/dev/doc/thesis)) grasping pipeline.
+```ggcnn_app2.launch``` - Runs the Approach 2 (Defining grasps based on surface normals) grasping pipeline.
 
 ```ggcnn_realr.launch``` - Runs the real robot grasping pipeline. Need to launch darknet_ros separately.
 
@@ -102,9 +101,9 @@ Now this network is ready to predict grasps.
 
 Grasp prediction is a part of the grasping pipeline for this network.
 
-```rcnn_app1.launch``` - Runs the Approach 1 (refer [Thesis](https://fbe-gitlab.hs-weingarten.de/stud-iki/thesis-master/ws19_prasad_grasping_objects/tree/dev/doc/thesis)) grasping pipeline.
+```rcnn_app1.launch``` - Runs the Approach 1 (Distinguish grasps based on object dimensions) grasping pipeline.
 
-```rcnn_app2.launch``` - Runs the Approach 2 (refer [Thesis](https://fbe-gitlab.hs-weingarten.de/stud-iki/thesis-master/ws19_prasad_grasping_objects/tree/dev/doc/thesis)) grasping pipeline.
+```rcnn_app2.launch``` - Runs the Approach 2 (Defining grasps based on surface normals) grasping pipeline.
 
 ```rcnn_realr.launch``` - Runs the real robot grasping pipeline. Need to launch darknet_ros separately.
 
@@ -131,8 +130,4 @@ This package works on all ROS versions until kinetic. The python-pcl bindings we
 ## Authors
 Pranav Krishna Prasad - @pk-183384
 
-## License
-What license is applied to this repository in case of open sourcing.
 
-## Problems and solutions
-[Problems and solutions](https://fbe-gitlab.hs-weingarten.de/prj-iki-robotics/orga/robolab-wiki/wikis/Problems-And-Solutions)
