@@ -133,6 +133,14 @@ Object detection - ```roslaunch darknet_ros darknet_ros.launch```
 This package works on all ROS versions until kinetic. The python-pcl bindings were not updated for melodic yet. When updated, this package will also work on ROS melodic.
 
 ## Authors
-Pranav Krishna Prasad - @pk-183384
+Pranav Krishna Prasad 
+
+## Citation
+@thesis{pranavthesis,
+	title={{Grasping Unknown Objects using Convolutional Neural Networks}},
+	author={Pranav Krishna Prasad},
+	booktitle={Master Thesis, Ravensburg-Weingarten University},
+	year={2020}
+}
 
 
