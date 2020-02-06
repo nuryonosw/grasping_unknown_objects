@@ -9,6 +9,7 @@ Clone this repository into the catkin workspace.
 
 ```bash
 git clone https://github.com/Pranav24-8/grasping_unknown_objects.git
+```
 
 ### Generative Grasping CNN
 
