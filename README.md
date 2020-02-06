@@ -136,11 +136,12 @@ This package works on all ROS versions until kinetic. The python-pcl bindings we
 Pranav Krishna Prasad 
 
 ## Citation
+```bash
 @thesis{pranavthesis,
 	title={{Grasping Unknown Objects using Convolutional Neural Networks}},
 	author={Pranav Krishna Prasad},
 	booktitle={Master Thesis, Ravensburg-Weingarten University},
 	year={2020}
 }
-
+```
 
