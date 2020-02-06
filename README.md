@@ -4,7 +4,7 @@ This repository consists of two grasping neural networks implemented in two appr
 
 ## Acknowledgement
 
-Improvement on the works of Douglas Morrison, Peter Corke and Jurgen Leitner in their work "Closing the Loop for Robotic Grasping: A Real-time, Generative Grasp Synthesis Approach" and Fu-Jen Chu, Ruinian Xu and Patricio A. Vela in their work "Real-world Multi-object, Multi-grasp Detection". 
+Improvement on the works of Douglas Morrison, Peter Corke and Jurgen Leitner, "Closing the Loop for Robotic Grasping: A Real-time, Generative Grasp Synthesis Approach" and Fu-Jen Chu, Ruinian Xu and Patricio A. Vela, "Real-world Multi-object, Multi-grasp Detection". 
 
 
 ## Getting started
