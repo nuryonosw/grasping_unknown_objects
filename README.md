@@ -20,7 +20,7 @@ git clone https://github.com/Pranav24-8/grasping_unknown_objects.git
 This neural network is present in the package ```ggcnn_grasp```. The following steps can be used to get this running.
 
 ```bash
-cd ws19_prasad_grasping_objects/ggcnn_grasp/ggcnn
+cd grasping_unknown_objects/ggcnn_grasp/ggcnn
 pip install -r requirements.txt
 cd ..
 mkdir Dataset
@@ -41,7 +41,7 @@ python train_ggcnn.py --description training_example --network ggcnn --dataset c
 
 The training stores a file for each epoch in  [ggcnn_grasp/ggcnn/output/models/](https://github.com/Pranav24-8/grasping_unknown_objects/tree/master/ggcnn_grasp/ggcnn/output/models) and every file has the validation score appended. Copy the file with maximum score to [ggcnn_grasp/src/opmodels](https://github.com/Pranav24-8/grasping_unknown_objects/tree/master/ggcnn_grasp/src/opmodels). Replace the file name in line 12 of [ggcnn_predict.py](https://github.com/Pranav24-8/grasping_unknown_objects/blob/master/ggcnn_grasp/src/ggcnn_predict.py) with the new one.
 
-Install all other dependencies listed below and now this network is ready to predict grasps. 
+Install all other dependencies listed and now this network is ready to predict grasps. 
 
 ```ggcnn_predict.launch``` - Runs the network prediction file.
 
@@ -137,10 +137,10 @@ Pranav Krishna Prasad
 
 ## Citation
 ```bash
-@thesis{pranavthesis,
+@article{guo20,
 	title={{Grasping Unknown Objects using Convolutional Neural Networks}},
-	author={Pranav Krishna Prasad},
-	booktitle={Master Thesis, Ravensburg-Weingarten University},
+	author={Pranav Krishna Prasad, Benjamin Stähle, Igor Chernov, Wolfgang Ertel},
+	conference={Intelligent Systems Conference (Intellisys)},
 	year={2020}
 }
 ```
