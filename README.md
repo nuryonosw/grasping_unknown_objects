@@ -138,6 +138,5 @@ Pranav Krishna Prasad
 ## Citation
 ```bash
 Krishna Prasad P., Staehle B., Chernov I., Ertel W. (2021) Grasping Unknown Objects Using Convolutional Neural Networks. In: Arai K., Kapoor S., Bhatia R. (eds) Intelligent Systems and Applications. IntelliSys 2020. Advances in Intelligent Systems and Computing, vol 1252. Springer, Cham. https://doi.org/10.1007/978-3-030-55190-2_51
-}
 ```
 
